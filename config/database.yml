@@ -23,9 +23,8 @@ default: &default
   # user: postgres
   # password: 2352122Aa.
 
-host: 127.0.0.1
-username: rails
-password: railspassword
+  # username: rails
+  # password: railspassword
 development:
   <<: *default
   database: recipe_app_development
