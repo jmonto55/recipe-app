@@ -2,6 +2,8 @@ class RecipeFood < ApplicationRecord
   belongs_to :food
   belongs_to :recipe
 
+  after_save :update_recipe_foods_counter
+
   def update_recipe_foods_counter
     user.increment!(:recipe_foods_counter)
   end

@@ -4,6 +4,8 @@ class Recipe < ApplicationRecord
 
   attribute :recipe_foods_counter, :integer, default: 0
 
+  after_save :update_recipes_counter
+
   def update_recipes_counter
     user.increment!(:recipes_counter)
   end
