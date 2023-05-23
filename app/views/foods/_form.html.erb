@@ -1,4 +1,4 @@
-<%= form_with(model: food) do |form| %>
+<%= form_with model: food  do |f| %>
   <% if food.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
@@ -10,8 +10,21 @@
       </ul>
     </div>
   <% end %>
+    <div>
+      <%= f.text_field :name, placeholder: "Food Name" %>
+    </div>
 
+    <div>
+      <%= f.text_field :measurement_unit, placeholder: "Measurement unit" %>
+    </div>
+
+    <div>
+    <%= f.text_field :price, placeholder: "Price" %>
+  </div>
   <div>
-    <%= form.submit %>
+    <%= f.number_field :quantity, placeholder: "Quantity" %>
+  </div>
+  <div>
+    <%= f.submit %>
   </div>
 <% end %>
