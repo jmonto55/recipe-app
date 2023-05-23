@@ -12,6 +12,27 @@
   <% end %>
 
   <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :preparation_time %>
+    <%= form.number_field :preparation_time %>
+  </div>
+  <div>
+    <%= form.label :cooking_time %> <br>
+    <%= form.number_field :cooking_time %>
+  </div>
+  <div>
+    <%= form.label :description %> <br>
+    <%= form.text_field :description %>
+  </div>
+  <div>
+    <%= form.label :public %>
+    <%= form.select :public, options_for_select([['True', true], ['False', false]]) %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

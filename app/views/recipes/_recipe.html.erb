@@ -1,2 +1,11 @@
-<div id="<%= dom_id recipe %>">
+<div id="<%= dom_id recipe %>" class="border w-5/6">
+  <card class="flex justify-between p-4">
+    <div class="flex flex-col">
+      <h2><%= recipe.name %></h2>
+      <%= button_to "Remove", recipe, method: :delete %>
+    </div>
+    <div class="">
+      <p><%= recipe.description %></p>
+    </div>
+  </card>
 </div>
