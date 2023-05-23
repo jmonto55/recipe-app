@@ -13,9 +13,34 @@
 
   <body>
     <header class="">
-      <% if user_signed_in? %>
-        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout-button mt-8 text-zinc-200 bg-white bg-opacity-10 text-white rounded-2xl shadow-5xl border-2 border-t-0 border-l-0 border-white/25 p-2" %>
-      <% end %>
+      <nav class="flex justify-end px-10 py-4">
+        <ul class="flex w-1/2 justify-evenly">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "/foods", remote: false do %>
+                Foods
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "/recipes", remote: false do %>
+                Recipes
+              <% end %>
+            </li>
+            <li>
+              <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout-button text-black" %>
+            </li>
+          <% else %>
+            <li>
+              <p>Please login or sign up to use the app</p>
+            <li>
+              <%= button_to "Log in", new_user_session_path, method: :get, class: "login-button text-black" %>
+            </li>
+            <li>
+              <%= button_to "Sign up", new_user_registration_path, method: :get, class: "signup-button text-black" %>
+            </li>
+          <% end %>      
+        </ul>
+      </nav>
       <p class="notice mt-8"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </header>
