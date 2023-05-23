@@ -3,6 +3,7 @@
     <div class="flex flex-col">
       <h2><%= recipe.name %></h2>
       <%= button_to "Remove", recipe, method: :delete %>
+      <p class="mt-8"><%= "by: #{recipe.user.name}" %></p>
     </div>
     <div class="">
       <p><%= recipe.description %></p>

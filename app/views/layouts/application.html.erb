@@ -15,6 +15,9 @@
     <header class="">
       <nav class="flex justify-end px-10 py-4">
         <ul class="flex w-1/2 justify-evenly">
+          <li>
+            <%= link_to 'Public Recipes', public_recipes_path, class: 'button' %>
+          </li>
           <% if user_signed_in? %>
             <li>
               <%= link_to "/foods", remote: false do %>
