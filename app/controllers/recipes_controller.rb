@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
   end
 
   def add_food
-    @foods= Food.all
+    @foods = Food.all
   end
 
   # GET /recipes/1 or /recipes/1.json
