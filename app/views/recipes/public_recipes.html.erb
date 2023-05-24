@@ -1,7 +1,7 @@
 <section class="w-screen flex flex-col p-10">
   <p style="color: green"><%= notice %></p>
 
-  <h1 class="text-2xl font-bold mb-8">Recipes</h1>
+  <h1 class="text-2xl font-bold mb-8">Public Recipes</h1>
 
   <div id="recipes" class="w-full m-auto flex flex-col items-center">
     <% @recipes.each do |recipe| %>
@@ -11,6 +11,4 @@
       </button>
     <% end %>
   </div>
-
-  <%= link_to "New recipe", new_recipe_path %>
 </section>
