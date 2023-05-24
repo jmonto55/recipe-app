@@ -1,4 +1,5 @@
-<%= form_with(model: food) do |form| %>
+<section class="w-full m-auto flex flex-col items-center">
+<%= form_with model: food  do |f| %>
   <% if food.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
@@ -10,8 +11,28 @@
       </ul>
     </div>
   <% end %>
+    <div>
+      <%= f.text_field :name, placeholder: "Food Name", class: "shadow-sm border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" %>
+    </div>
+    <br>
+
+    <div>
+      <%= f.text_field :measurement_unit, placeholder: "Measurement unit", class: "shadow-sm border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  %>
+    </div>
+    <br>
+
+    <div>
+    <%= f.text_field :price, placeholder: "Price", class: "shadow-sm border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  %>
+  </div>
+    <br>
+  <div>
+    <%= f.number_field :quantity, placeholder: "Quantity", class: "shadow-sm border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  %>
+  </div>
+    <br>
 
   <div>
-    <%= form.submit %>
+    <%= f.submit class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
   </div>
 <% end %>
+
+</section>

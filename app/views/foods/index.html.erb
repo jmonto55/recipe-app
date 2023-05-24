@@ -1,14 +1,30 @@
-<p style="color: green"><%= notice %></p>
+<section class="w-screen flex flex-col p-10">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Foods</h1>
 
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
-  <% end %>
-</div>
+  <h1>Foods</h1>
+  <%= link_to "New food", new_food_path, class: "w-full justify-end" %>
+  <div id="foods" class="w-full m-auto flex flex-col items-center">
+  <table class="text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <th scope="col" class="px-6 py-3">Food</th>
+      <th scope="col" class="px-6 py-3">Measurement unit</th>
+      <th scope="col" class="px-6 py-3">Quantity</th>
+      <th scope="col" class="px-6 py-3">Unit price</th>
+      <th scope="col" class="px-6 py-3">Actions</th>
+    </thead>
+    <tbody>
+    <% @foods.each do |food| %>
+      <tr class="border-b">
+          <td class="px-6 py-4"><%= food.name %></td>
+          <td class="px-6 py-4"><%= food.measurement_unit %></td>
+          <td class="px-6 py-4"><%= food.quantity %></td>
+          <td class="px-6 py-4"><%= food.price %></td>
+          <td class="px-6 py-4"><%= button_to 'Delete', food_path(food), method: :delete, class: "hover:underline" %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
 
-<%= link_to "New food", new_food_path %>
+</section>
