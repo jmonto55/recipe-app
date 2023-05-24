@@ -10,9 +10,29 @@
 
   <div class="mt-10 flex justify-between">
     <button>Generate shopping list</button>
-    <%= link_to "Add ingredients", add_food_path %>
+    <button><%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe) %></button>
   </div>
   <div class="mt-10">
     <%= link_to "Back to recipes", request.referer || public_recipes_path %>
   </div>
+  
+  <table class="text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <th scope="col" class="px-6 py-3">Food</th>
+      <th scope="col" class="px-6 py-3">Quantity</th>
+      <th scope="col" class="px-6 py-3">Unit price</th>
+      <th scope="col" class="px-6 py-3">Actions</th>
+    </thead>
+    <tbody>
+    <% @recipe_foods.each do |recipe_food| %>
+      <tr class="border-b">
+          <td class="px-6 py-4"><%= recipe_food.food.name %></td>
+          <td class="px-6 py-4"><%= recipe_food.food.quantity %></td>
+          <td class="px-6 py-4"><%= recipe_food.food.price %></td>
+          <td class="px-6 py-4"><%= button_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
 </section>
