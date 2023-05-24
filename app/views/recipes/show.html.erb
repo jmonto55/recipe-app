@@ -1,15 +1,18 @@
 <section class="w-full flex flex-col p-10">
-  <div>
-    <h1 class="text-2xl font-bold mb-8"><%= @recipe.name %></h1>
-    <p><%= "Preparation time: #{@recipe.preparation_time} hour" %></p>
-    <p><%= "Cooking time: #{@recipe.cooking_time} hour" %></p>
+  <div class="">
+    <div class="">
+      <h1 class="text-2xl font-bold mb-8"><%= @recipe.name %></h1>
+      <p><%= "Preparation time: #{@recipe.preparation_time} hour" %></p>
+      <p><%= "Cooking time: #{@recipe.cooking_time} hour" %></p>
+      <p><%= "How to cook it: #{@recipe.description}" %></p>
+    </div>
   </div>
 
   <div class="mt-10 flex justify-between">
     <button>Generate shopping list</button>
-    <button>Add ingredient</button>
+    <%= link_to "Add ingredients", add_food_path %>
   </div>
   <div class="mt-10">
-    <%= link_to "Back to recipes", recipes_path %>
+    <%= link_to "Back to recipes", request.referer || public_recipes_path %>
   </div>
 </section>

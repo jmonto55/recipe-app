@@ -10,6 +10,10 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(public: true)
   end
 
+  def add_food
+    @foods= Food.all
+  end
+
   # GET /recipes/1 or /recipes/1.json
   def show; end
 

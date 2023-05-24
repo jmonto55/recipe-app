@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AppName</title>
+    <title>Recipes App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,7 +14,7 @@
   <body>
     <header class="">
       <nav class="flex justify-end px-10 py-4">
-        <ul class="flex w-1/2 justify-evenly">
+        <ul class="flex w-4/5 justify-evenly">
           <li>
             <%= link_to 'Public Recipes', public_recipes_path, class: 'button' %>
           </li>
@@ -33,9 +33,6 @@
               <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout-button text-black" %>
             </li>
           <% else %>
-            <li>
-              <p>Please login or sign up to use the app</p>
-            <li>
               <%= button_to "Log in", new_user_session_path, method: :get, class: "login-button text-black" %>
             </li>
             <li>
@@ -44,6 +41,9 @@
           <% end %>      
         </ul>
       </nav>
+      <% if !user_signed_in? %>
+        <p>Please login or sign up to use the app</p>
+      <% end %>
       <p class="notice mt-8"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </header>
