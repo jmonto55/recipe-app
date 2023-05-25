@@ -15,22 +15,22 @@
     <header class="">
       <nav class="flex justify-end px-10 py-4">
         <ul class="flex w-4/5 justify-evenly">
-          <li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
+          <li class="hover:text-gray-500 p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
             <%= link_to 'Public Recipes', public_recipes_path, class: 'button' %>
           </li>
           <% if user_signed_in? %>
-            <li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
+            <li class="hover:text-gray-500 p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
               <%= link_to "/foods", remote: false do %>
                 Foods
               <% end %>
             </li>
-            <li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
+            <li class="hover:text-gray-500 p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
               <%= link_to "/recipes", remote: false do %>
                 Recipes
               <% end %>
             </li>
             <li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
-              <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout-button text-black" %>
+              <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout-button text-black hover:text-red-500" %>
             </li>
           <% else %>
               <%= button_to "Log in", new_user_session_path, method: :get, class: "login-button text-black p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2" %>

@@ -77,3 +77,5 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'tailwindcss-rails'
 
 gem 'cancancan'
+
+gem 'bullet'
