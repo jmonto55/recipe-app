@@ -14,7 +14,7 @@
   <body class="bg-[#EDF0F4] w-screen overflow-x-hidden">
     <header class="">
       <nav class="flex justify-end px-10 py-4">
-        <ul class="flex w-4/5 justify-evenly">
+        <ul class="flex sm:w-full w-4/5 justify-evenly">
           <li class="hover:text-gray-500 p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
             <%= link_to 'Public Recipes', public_recipes_path, class: 'button' %>
           </li>
@@ -47,7 +47,7 @@
         </div>
       <% end %>
       <div class="flex w-screen justify-center">
-        <p class="notice text-green-600 mt-8"><%= notice %></p>
+        <p class="text-lg notice text-green-600 mt-8 animate-pulse"><%= notice %></p>
         <p class="alert text-red-600"><%= alert %></p>
       </div>
     </header>
