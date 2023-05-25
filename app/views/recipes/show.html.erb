@@ -1,22 +1,20 @@
 <section class="w-full flex flex-col p-10">
-  <div class="">
+  <div class="p-8 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
     <div class="">
       <h1 class="text-2xl font-bold mb-8"><%= @recipe.name %></h1>
-      <p><%= "Preparation time: #{@recipe.preparation_time} hour" %></p>
-      <p><%= "Cooking time: #{@recipe.cooking_time} hour" %></p>
-      <p><%= "How to cook it: #{@recipe.description}" %></p>
+      <p class="mb-4"><%= "Preparation time: #{@recipe.preparation_time} hour" %></p>
+      <p class="mb-4"><%= "Cooking time: #{@recipe.cooking_time} hour" %></p>
+      <p><%= "Recipe: #{@recipe.description}" %></p>
     </div>
   </div>
 
   <div class="mt-10 flex justify-between">
-    <button>Generate shopping list</button>
-    <button><%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe) %></button>
+    <button class="mb-8 justify-self-end hover:text-blue-600 cursor-pointer flex justify-center actions w-[220px] py-2 px-4 mt-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2">Generate shopping list</button>
+    <button class="mb-8 justify-self-end hover:text-blue-600 cursor-pointer flex justify-center actions w-[160px] py-2 px-4 mt-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2"><%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe) %></button>
   </div>
-  <div class="mt-10">
-    <%= link_to "Back to recipes", request.referer || public_recipes_path %>
-  </div>
-  
-  <table class="text-sm text-left text-gray-500 dark:text-gray-400">
+  <hr>
+  <br>
+  <table class="text-sm text-left text-gray-500 dark:text-gray-400 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <th scope="col" class="px-6 py-3">Food</th>
       <th scope="col" class="px-6 py-3">Quantity</th>
@@ -27,12 +25,14 @@
     <% @recipe_foods.each do |recipe_food| %>
       <tr class="border-b">
           <td class="px-6 py-4"><%= recipe_food.food.name %></td>
-          <td class="px-6 py-4"><%= recipe_food.food.quantity %></td>
+          <td class="px-6 py-4"><%= recipe_food.quantity %></td>
           <td class="px-6 py-4"><%= recipe_food.food.price %></td>
-          <td class="px-6 py-4"><%= button_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete %></td>
+          <td class="px-6 py-4"><%= button_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class: 'hover:text-red-600' %></td>
         </tr>
     <% end %>
     </tbody>
   </table>
-
+  <div class="mt-12 hover:text-blue-600 cursor-pointer flex justify-center actions w-[160px] py-2 px-4 mt-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2">
+    <%= link_to "Back to recipes", request.referer || public_recipes_path %>
+  </div>
 </section>
