@@ -52,7 +52,7 @@ class RecipesController < ApplicationController
       render :edit
     end
   end
-  
+
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
     @recipe.recipe_foods.destroy_all
