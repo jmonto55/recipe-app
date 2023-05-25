@@ -30,9 +30,10 @@ class FoodsController < ApplicationController
   end
 
   def destroy
+    @food.recipe_foods.destroy_all
     @food.destroy
 
-    redirect_to foods_path, notice: 'Food was successfully destroyed.'
+    redirect_to foods_path, notice: 'Food was successfully removed.'
   end
 
   private
