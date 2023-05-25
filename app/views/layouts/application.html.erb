@@ -11,41 +11,45 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-[#EDF0F4] w-screen">
     <header class="">
       <nav class="flex justify-end px-10 py-4">
         <ul class="flex w-4/5 justify-evenly">
-          <li>
+          <li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
             <%= link_to 'Public Recipes', public_recipes_path, class: 'button' %>
           </li>
           <% if user_signed_in? %>
-            <li>
+            <li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
               <%= link_to "/foods", remote: false do %>
                 Foods
               <% end %>
             </li>
-            <li>
+            <li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
               <%= link_to "/recipes", remote: false do %>
                 Recipes
               <% end %>
             </li>
-            <li>
+            <li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
               <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout-button text-black" %>
             </li>
           <% else %>
-              <%= button_to "Log in", new_user_session_path, method: :get, class: "login-button text-black" %>
-            </li>
+              <%= button_to "Log in", new_user_session_path, method: :get, class: "login-button text-black p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2" %>
+            </li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
             <li>
-              <%= button_to "Sign up", new_user_registration_path, method: :get, class: "signup-button text-black" %>
+              <%= button_to "Sign up", new_user_registration_path, method: :get, class: "signup-button text-black p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2" %>
             </li>
           <% end %>      
         </ul>
       </nav>
       <% if !user_signed_in? %>
-        <p>Please login or sign up to use the app</p>
+        <div class="flex w-screen justify-center mt-10">
+          <p class="animate-pulse">Please login or sign up to use the app</p>
+        </div>
       <% end %>
-      <p class="notice mt-8"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="flex w-screen justify-center">
+        <p class="notice text-green-600 mt-8"><%= notice %></p>
+        <p class="alert text-red-600"><%= alert %></p>
+      </div>
     </header>
     <%= yield %>
   </body>

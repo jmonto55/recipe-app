@@ -17,3 +17,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.remove-border:focus {
+  box-shadow: none !important;
+}
+
+select {
+  border: none;
+  border-radius: 10px;
+  margin-left: 4px;
+}
