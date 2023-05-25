@@ -1,4 +1,6 @@
-<%= form_with(model: recipe) do |form| %>
+<section class="mt-10 w-screen flex flex-col items-center">
+  <div class="p-8 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
+    <%= form_with(model: recipe) do |form| %>
   <% if recipe.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -12,27 +14,25 @@
   <% end %>
 
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border', placeholder: "Name" %>
   </div>
   <div>
-    <%= form.label :preparation_time %>
-    <%= form.number_field :preparation_time %>
+    <%= form.number_field :preparation_time, class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border', placeholder: "Preparation time" %>
   </div>
   <div>
-    <%= form.label :cooking_time %> <br>
-    <%= form.number_field :cooking_time %>
+    <%= form.number_field :cooking_time, class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border', placeholder: "Cooking time" %>
   </div>
   <div>
-    <%= form.label :description %> <br>
-    <%= form.text_field :description %>
+    <%= form.text_area :description, class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border w-full min-h-[80px]', placeholder: "Description" %>
   </div>
   <div>
     <%= form.label :public %>
-    <%= form.select :public, options_for_select([['True', true], ['False', false]]) %>
+    <%= form.select :public, options_for_select([['True', true], ['False', false]]), class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-8 cursor-pointer flex justify-center actions w-[120px] py-2 px-4 mt-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2">
+    <%= form.submit "Create recipe", class: 'cursor-pointer hover:text-green-600' %>
   </div>
 <% end %>
+  </div>
+</section>

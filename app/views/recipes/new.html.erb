@@ -1,9 +1,8 @@
-<h1>New recipe</h1>
+<div class="w-screen flex flex-col items-center">
+  <h1 class="text-xl font-bold">New recipe</h1>
 
-<%= render "form", recipe: @recipe %>
-
-<br>
-
-<div>
-  <%= link_to "Back to recipes", recipes_path %>
+  <%= render "form", recipe: @recipe %>
+  <div class="hover:text-blue-600 flex justify-center w-[180px] py-2 px-4 mt-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2">
+    <%= link_to "Back to recipes", recipes_path %>
+  </div>
 </div>

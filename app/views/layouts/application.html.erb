@@ -46,8 +46,10 @@
           <p class="animate-pulse">Please login or sign up to use the app</p>
         </div>
       <% end %>
-      <p class="notice mt-8"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="flex w-screen justify-center">
+        <p class="notice mt-8"><%= notice %></p>
+        <p class="alert text-red-600"><%= alert %></p>
+      </div>
     </header>
     <%= yield %>
   </body>
