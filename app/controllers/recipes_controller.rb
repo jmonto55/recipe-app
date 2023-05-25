@@ -42,6 +42,17 @@ class RecipesController < ApplicationController
     end
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      # Handle successful update
+      redirect_to @recipe, notice: 'Recipe was successfully updated.'
+    else
+      # Handle update failure
+      render :edit
+    end
+  end
+  
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
     @recipe.recipe_foods.destroy_all

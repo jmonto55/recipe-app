@@ -1,11 +1,22 @@
 <section class="w-full flex flex-col p-10">
-  <div class="p-8 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
+  <div class="p-8 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4 flex justify-between">
     <div class="">
       <h1 class="text-2xl font-bold mb-8"><%= @recipe.name %></h1>
       <p class="mb-4"><%= "Preparation time: #{@recipe.preparation_time} hour" %></p>
       <p class="mb-4"><%= "Cooking time: #{@recipe.cooking_time} hour" %></p>
       <p><%= "Recipe: #{@recipe.description}" %></p>
     </div>
+    <div>
+      <%= form_with(model: @recipe, local: true, html: { onchange: 'this.submit();' }) do |form| %>
+        <%= form.label :public, 'Make Recipe Public' %>
+        <%= form.radio_button :public, true %>
+        <br>
+        <%= form.label :public, 'Make Recipe Private' %>
+        <%= form.radio_button :public, false %>
+      <% end %>
+    </div>
+
+
   </div>
 
   <div class="mt-10 flex justify-between">
@@ -25,8 +36,8 @@
     <% @recipe_foods.each do |recipe_food| %>
       <tr class="border-b">
           <td class="px-6 py-4"><%= recipe_food.food.name %></td>
-          <td class="px-6 py-4"><%= recipe_food.quantity %></td>
-          <td class="px-6 py-4"><%= recipe_food.food.price %></td>
+          <td class="px-6 py-4"><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+          <td class="px-6 py-4">$<%= recipe_food.food.price %></td>
           <td class="px-6 py-4"><%= button_to "Remove", recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class: 'hover:text-red-600' %></td>
         </tr>
     <% end %>

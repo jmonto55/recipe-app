@@ -3,14 +3,15 @@
     <h1 class="text-xl font-bold mb-6">Add ingredient to Recipe</h1>
     <%= form_with url: recipe_recipe_foods_path(recipe_id: @recipe.id), scope: :recipe_food do |form| %>
       <div class="form-div" >
-        <div class='form-item'>
-          <%= form.label :quantity, class:"form-label" %><br>
-          <%= form.number_field :quantity , class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border', required: true, placeholder: '0',  min: 1%><br>
-        </div>
 
         <div class='mt-4'>
           <%= form.label :food, class: 'form-label' %><br>
           <%= form.select :food_id, current_user.foods.map {|food| [food.name, food.id]},{ include_blank: true} , class:"input-form"%><br>
+        </div>
+
+        <div class='form-item mt-4'>
+          <%= form.label :quantity, class:"form-label" %><br>
+          <%= form.number_field :quantity , class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border', required: true, placeholder: '0',  min: 1%><br>
         </div>
 
         <div class='mt-8 cursor-pointer flex justify-center actions w-[80px] py-2 px-4 mt-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2'>

@@ -5,7 +5,18 @@
 
   <div id="recipes" class="w-full m-auto flex flex-col bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
     <% @recipes.each do |recipe| %>
-      <%= render recipe %>
+      <div id="<%= dom_id recipe %>" class="w-full p-8">
+        <card class="flex justify-between p-4">
+          <div class="flex flex-col justify-center">
+            <h2 class="text-2xl font-bold"><%= recipe.name %></h2>
+            <p class="mt-8"><b>by: </b><%= recipe.user.name %></p>
+          </div>
+          <div class="w-5/6 justify-center flex flex-col items-center text-xl gap-8">
+            <p><b>Total food items: </b><%= recipe.recipe_foods.length %></p>
+            <p><b>Total price: </b><%= number_to_currency(recipe.recipe_foods.map { |rf| rf.quantity * rf.food.price }.sum, precision: 0) %></p>
+          </div>
+        </card>
+      </div>
       <div class="flex w-full">
         <button class="mb-8 justify-self-end ml-8 hover:text-blue-600 cursor-pointer flex justify-center actions w-[180px] py-2 px-4 mt-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2">
           <%= link_to "Show this recipe", recipe %>
