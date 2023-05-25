@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @recipes = Recipe.includes(:user, :recipe_foods).where(public: true)
+    @recipes = Recipe.includes(:user).where(public: true)
   end
 
   def add_food
@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
-    @recipe_foods = RecipeFood.where(recipe_id: @recipe.id)
+    @recipe_foods = RecipeFood.includes(:food).where(recipe_id: @recipe.id)
   end
 
   # GET /recipes/new

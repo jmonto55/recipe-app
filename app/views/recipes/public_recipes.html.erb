@@ -12,8 +12,8 @@
             <p class="mt-8"><b>by: </b><%= recipe.user.name %></p>
           </div>
           <div class="w-5/6 justify-center flex flex-col items-center text-xl gap-8">
-            <p><b>Total food items: </b><%= recipe.recipe_foods.length %></p>
-            <p><b>Total price: </b><%= number_to_currency(recipe.recipe_foods.map { |rf| rf.quantity * rf.food.price }.sum, precision: 0) %></p>
+            <p><b>Total food items: </b><%= recipe.recipe_foods.includes(:food).length %></p>
+            <p><b>Total price: </b><%= number_to_currency(recipe.recipe_foods.includes(:food).map { |rf| rf.quantity * rf.food.price }.sum, precision: 0) %></p>
           </div>
         </card>
       </div>
