@@ -9,7 +9,7 @@
     <% if current_user == @recipe.user %>
       <div class="relative">
         <%= form_with(model: @recipe, local: true, html: { onchange: 'this.submit();' }) do |form| %>
-          <%= form.radio_button :public, false, class: "yeah focus:ring-transparent" %>
+          <%= form.radio_button :public, false, class: "toggle-private focus:ring-transparent" %>
 
           <%= form.label :public, 'Public' %>
           <%= form.radio_button :public, true, class: "toggle-radio text-green-500 focus:ring-transparent" %>

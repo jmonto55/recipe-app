@@ -61,7 +61,7 @@ select {
   box-shadow: 0 0 0 3px;
 }
 
-.yeah {
+.toggle-private {
   outline: none;
   position: absolute;
   color: #fff;
@@ -75,8 +75,4 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   cursor: pointer;
-}
-
-.yeah:checked::before {
-  width: 0.875rem;
 }
