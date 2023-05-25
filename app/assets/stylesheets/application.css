@@ -17,3 +17,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.remove-border:focus {
+  box-shadow: none !important;
+}
+
