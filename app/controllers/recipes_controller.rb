@@ -10,6 +10,25 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(public: true)
   end
 
+  def general_shopping_list
+    user_recipes = current_user.recipes
+
+    user_foods = current_user.foods
+
+    recipe_foods = RecipeFood.where(recipe_id: user_recipes.pluck(:id))
+
+    puts 'recipe_foods', recipe_foods.inspect
+
+    puts '======================'
+
+    puts 'user_foods', user_foods.inspect
+
+    recipe_food_names = recipe_foods.pluck(:id)
+
+    puts '======================'
+    puts 'recipe_food_names', recipe_food_names.inspect
+  end
+
   def add_food
     @foods = Food.all
   end
