@@ -4,7 +4,7 @@ class FoodsController < ApplicationController
 
   # GET /foods
   def index
-    @foods = Food.all
+    @foods = current_user.foods
   end
 
   # GET /foods/1

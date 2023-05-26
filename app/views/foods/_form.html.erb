@@ -17,7 +17,8 @@
     <br>
 
     <div>
-      <%= f.text_field :measurement_unit, placeholder: "Measurement unit", class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border'  %>
+      <%= f.label :measurement_unit %>
+      <%= f.select :measurement_unit, options_for_select([['units'], ['grams'], ['kgrams']]), class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border' %>
     </div>
     <br>
 
