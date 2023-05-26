@@ -3,21 +3,11 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @user = current_user
-    @recipes = @user.retrieve_all_user_recipes.includes(:user)
+    @recipes = current_user.retrieve_all_user_recipes.includes(:user)
   end
 
   def public_recipes
     @recipes = Recipe.includes(:user).where(public: true)
-  end
-
-  def general_shopping_list
-    user_recipes = current_user.recipes
-    user_foods = current_user.foods
-    recipe_foods = RecipeFood.where(recipe_id: user_recipes.pluck(:id))
-    recipe_food_quantity = get_recipe_foods_quantity(recipe_foods)
-
-    get_general_shopping_list(user_foods, recipe_food_quantity)
   end
 
   def add_food
@@ -84,40 +74,5 @@ class RecipesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
-  end
-
-  # generate general shopping list
-
-  def get_recipe_foods_quantity(recipe_foods)
-    recipe_food_quantity = {}
-    recipe_foods.includes(:food).each do |food|
-      name = food.food.name
-      if recipe_food_quantity[name].nil?
-        recipe_food_quantity[name] = food.quantity
-      else
-        recipe_food_quantity[name] += food.quantity
-      end
-    end
-
-    recipe_food_quantity
-  end
-
-  def get_general_shopping_list(user_foods, recipe_food_quantity)
-    @general_shopping_list = []
-    user_foods.each do |food|
-      name = food.name
-      quantity = food.quantity
-      price = food.price
-      next unless recipe_food_quantity[name]
-
-      r_quantity = recipe_food_quantity[name]
-      next unless quantity < r_quantity
-
-      g_quantity = r_quantity - quantity
-      g_price = g_quantity * price
-      @general_shopping_list << { name:, quantity: g_quantity, price: g_price }
-    end
-
-    @general_shopping_list
   end
 end

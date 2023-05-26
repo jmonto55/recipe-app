@@ -1,35 +1,39 @@
 require 'rails_helper'
 
-RSpec.describe 'Recipes index page', type: :system do
-  describe 'check the content of the index page' do
-    before(:each) do
-      @user = User.create(name: 'Tom', email: "tom@mail.com")
-      @recipe = Recipe.create(
-        name: "rice with shrimp",
-        preparation_time: 1,
-        cooking_time: 2,
-        description: "cook shrimp and mix with rice and vegetables",
-        public: true,
-        user_id: @user.id
-      )
-    end
+RSpec.describe 'Recipe Index', type: :system do
+  before(:each) do
+    @user = User.create(name: 'Jose', email: 'jose@mail.com', password: '2e2010510',
+                        password_confirmation: '2e2010510')
+    @recipe = Recipe.create(user_id: @user.id, name: 'Pizza', preparation_time: '2', cooking_time: '3',
+                            description: 'Amazing hot pizza')
+  end
 
-    feature 'Recipe show' do
-      background do
-        allow(controller).to receive(:current_user).and_return(user)
+  it 'User should log in' do
+    visit new_user_session_path
+    fill_in 'Email', with: @user.email
+    sleep(2)
+    fill_in 'Password', with: @user.password
+    click_button('login')
+    sleep(3)
+  end
 
-        host = 'http://localhost:3000'
-        visit url_for(controller: 'recipes', action: 'index', user_id: @user.id, host: host)
-      end
+  it 'User should be able to create a new Recipe' do
+    visit root_path
+    fill_in 'Email', with: @user.email
+    fill_in 'Password', with: @user.password
+    sleep(3)
+    click_button('login')
 
-      it 'I can see the Header "Recipes" in the index page' do
-        expect(page).to have_content('Recipes')
-      end
+    click_link 'Recipes'
+    sleep(2)
+    click_link 'New recipe'
 
-      it 'I can see the recipe\'s description' do
-        @recipes = Recipe.where(user_id: @user.id)
-        expect(page).to have_content 'cook shrimp and mix with rice and vegetables'
-      end
-    end
+    fill_in 'Name', with: @recipe.name
+    sleep(3)
+    fill_in 'Preparation time', with: @recipe.preparation_time
+    fill_in 'Cooking time', with: @recipe.cooking_time
+    fill_in 'Description', with: @recipe.description
+    click_button('submit')
+    sleep(3)
   end
 end
