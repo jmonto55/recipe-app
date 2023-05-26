@@ -9,7 +9,7 @@ RSpec.describe 'Recipe Show', type: :system do
     @food = Food.create(user_id: @user.id, name: 'sausage', measurement_unit: 'grams', price: '5', quantity: '200')
   end
 
-  it 'User should be able to create a new Recipe' do
+  it 'User should be able to create a new Recipe and add ingredients' do
     visit root_path
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
