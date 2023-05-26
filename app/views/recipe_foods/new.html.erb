@@ -6,7 +6,7 @@
 
         <div class='mt-4'>
           <%= form.label :food, class: 'form-label' %><br>
-          <%= form.select :food_id, current_user.foods.map {|food| [food.name, food.id]},{ include_blank: true} , class:"input-form"%><br>
+          <%= form.select :food_id, current_user.foods.map {|food| [food.name, food.id]}, class:"input-form"%><br>
         </div>
 
         <div class='form-item mt-4'>
@@ -15,7 +15,7 @@
         </div>
 
         <div class='mt-8 cursor-pointer flex justify-center actions w-[80px] py-2 px-4 mt-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2'>
-          <%= form.submit "Add", class:"cursor-pointer hover:text-green-600" %>
+          <%= form.submit "Add", class:"cursor-pointer hover:text-green-600", id: 'submit' %>
         </div>
       </div>
     <%end%>

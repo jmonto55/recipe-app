@@ -25,7 +25,7 @@
               <% end %>
             </li>
             <li class="hover:text-gray-500 p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
-              <%= link_to "/recipes", remote: false do %>
+              <%= link_to "/recipes", remote: false, id: 'recipes' do %>
                 Recipes
               <% end %>
             </li>
@@ -33,7 +33,7 @@
               <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "logout-button text-black hover:text-red-500" %>
             </li>
           <% else %>
-              <%= button_to "Log in", new_user_session_path, method: :get, class: "login-button text-black p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2" %>
+              <%= button_to "Log in", new_user_session_path, method: :get, class: "text-black p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2" %>
             </li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
             <li>
               <%= button_to "Sign up", new_user_registration_path, method: :get, class: "signup-button text-black p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2" %>

@@ -7,5 +7,5 @@ class Recipe < ApplicationRecord
   validates :cooking_time, presence: true
   validates :description, presence: true
 
-  attribute :recipe_foods_counter, :integer, default: 0
+  scope :by_user, ->(user) { where(user_id: user.id) }
 end
