@@ -6,6 +6,4 @@ class Recipe < ApplicationRecord
   validates :preparation_time, presence: true
   validates :cooking_time, presence: true
   validates :description, presence: true
-
-  attribute :recipe_foods_counter, :integer, default: 0
 end
