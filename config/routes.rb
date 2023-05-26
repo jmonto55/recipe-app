@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :recipe_foods
   end  
-  resources :users
+  resources :users do
+  end
   resources :foods
   get '/public_recipes', to: 'recipes#public_recipes', as: 'public_recipes'
   get '/add_food', to: 'recipes#add_food', as: 'add_food'

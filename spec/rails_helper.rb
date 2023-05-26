@@ -32,7 +32,10 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
+  config.before(:each, type: :system) do
+    driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+    Rails.application.routes.default_url_options[:host] = 'localhost:3000' # Replace with your desired host
+  end
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
