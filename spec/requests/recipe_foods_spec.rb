@@ -12,13 +12,6 @@ RSpec.describe 'RecipeFoods', type: :request do
         public: true,
         user_id: user.id
       )
-      food = Food.create(
-        name: 'Beans',
-        measurement_unit: 'grams',
-        price: 10.0,
-        quantity: 500,
-        user_id: user.id
-      )
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       get "/recipes/#{recipe.id}"
     end
