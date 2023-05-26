@@ -3,11 +3,11 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = current_user.recipes
+    @recipes = current_user.recipes.includes(:user)
   end
 
   def public_recipes
-    @recipes = Recipe.where(public: true)
+    @recipes = Recipe.includes(:user).where(public: true)
   end
 
   def general_shopping_list
@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
-    @recipe_foods = RecipeFood.where(recipe_id: @recipe.id)
+    @recipe_foods = RecipeFood.includes(:food).where(recipe_id: @recipe.id)
   end
 
   # GET /recipes/new
@@ -42,12 +42,23 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
+        format.html { redirect_to recipe_url(@recipe) }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      # Handle successful update
+      redirect_to @recipe, notice: 'Recipe was successfully updated.'
+    else
+      # Handle update failure
+      render :edit
     end
   end
 
