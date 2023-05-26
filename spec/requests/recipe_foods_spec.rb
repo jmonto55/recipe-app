@@ -20,7 +20,6 @@ RSpec.describe 'RecipeFoods', type: :request do
         user_id: user.id
       )
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      recipe_food = RecipeFood.create(recipe_id: recipe.id, food_id: food.id, quantity: 10)
       get "/recipes/#{recipe.id}"
     end
 

@@ -4,14 +4,6 @@ RSpec.describe 'Recipes', type: :request do
   describe 'GET /index' do
     before(:example) do
       user = User.create(name: 'Tom', email: 'tom@mail.com')
-      recipe = Recipe.create(
-        name: 'rice with shrimp',
-        preparation_time: 1,
-        cooking_time: 2,
-        description: 'cook shrimp and mix with rice and vegetables',
-        public: true,
-        user_id: user.id
-      )
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       get '/recipes'
     end
