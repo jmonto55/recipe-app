@@ -24,7 +24,7 @@ RSpec.describe 'Recipe Index', type: :system do
     sleep(3)
     click_button('login')
 
-    click_link 'Recipes'
+    click_link('recipes')
     sleep(2)
     click_link 'New recipe'
 

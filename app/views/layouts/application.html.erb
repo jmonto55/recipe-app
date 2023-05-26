@@ -16,17 +16,17 @@
       <nav class="flex justify-end px-10 py-4">
         <ul class="flex sm:w-full w-4/5 justify-evenly">
           <li class="hover:text-gray-500 p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
-            <%= link_to "/recipes", remote: false do %>
-              Recipes
-            <% end %>
-          </li>
-          <li class="hover:text-gray-500 p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
             <%= link_to 'Public Recipes', public_recipes_path, class: 'button' %>
           </li>
           <% if user_signed_in? %>
             <li class="hover:text-gray-500 p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
               <%= link_to "/foods", remote: false do %>
                 Foods
+              <% end %>
+            </li>
+            <li class="hover:text-gray-500 p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
+              <%= link_to "/recipes", remote: false, id: 'recipes' do %>
+                Recipes
               <% end %>
             </li>
             <li class="p-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">

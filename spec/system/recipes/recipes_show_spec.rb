@@ -16,15 +16,15 @@ RSpec.describe 'Recipe Show', type: :system do
     sleep(2)
     click_button('login')
 
-    click_link 'Recipes'
+    click_link('recipes')
     sleep(2)
     click_link 'New recipe'
 
     fill_in 'Name', with: @recipe.name
+    sleep(2)
     fill_in 'Preparation time', with: @recipe.preparation_time
     fill_in 'Cooking time', with: @recipe.cooking_time
     fill_in 'Description', with: @recipe.description
-    sleep(1)
     click_button('submit')
     sleep(2)
     
