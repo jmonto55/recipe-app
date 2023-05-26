@@ -1,21 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe RecipeFood, type: :model do
-  let(:user) { User.new(name: 'Tom', email: "tom@mail.com") }
+  let(:user) { User.new(name: 'Tom', email: 'tom@mail.com') }
   let(:recipe) do
     Recipe.create(
-      name: "rice with shrimp",
+      name: 'rice with shrimp',
       preparation_time: 1,
       cooking_time: 2,
-      description: "cook shrimp and mix with rice and vegetables",
+      description: 'cook shrimp and mix with rice and vegetables',
       public: true,
       user_id: user.id
     )
   end
   let(:food) do
     Food.create(
-      name: "Beans",
-      measurement_unit: "grams",
+      name: 'Beans',
+      measurement_unit: 'grams',
       price: 10.0,
       quantity: 500,
       user_id: user.id

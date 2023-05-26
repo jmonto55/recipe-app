@@ -13,8 +13,8 @@ RSpec.describe 'RecipeFoods', type: :request do
         user_id: user.id
       )
       food = Food.create(
-        name: "Beans",
-        measurement_unit: "grams",
+        name: 'Beans',
+        measurement_unit: 'grams',
         price: 10.0,
         quantity: 500,
         user_id: user.id

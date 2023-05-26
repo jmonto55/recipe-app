@@ -27,7 +27,7 @@ RSpec.describe 'Recipe Show', type: :system do
     fill_in 'Description', with: @recipe.description
     click_button('submit')
     sleep(2)
-    
+
     click_link 'Add ingredient'
     fill_in 'Quantity', with: 2
     click_button('submit')

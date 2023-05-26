@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  let(:user) { User.new(name: 'Tom', email: "tom@mail.com") }
+  let(:user) { User.new(name: 'Tom', email: 'tom@mail.com') }
   let(:recipe) do
     Recipe.create(
-      name: "rice with shrimp",
+      name: 'rice with shrimp',
       preparation_time: 1,
       cooking_time: 2,
-      description: "cook shrimp and mix with rice and vegetables",
+      description: 'cook shrimp and mix with rice and vegetables',
       public: true,
       user_id: user.id
     )
