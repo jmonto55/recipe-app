@@ -2,8 +2,8 @@
   <h1 class="mb-6 text-2xl font-bold">Shopping List</h1>
 
   <div>
-    <h2>Amount of food to buy: <%= @general_shopping_list.length%> </h2>
-    <h2>Total value of food needed: <%= @general_shopping_list.sum { |item| item[:price] }%> </h2>
+    <h2 class="text-lg mb-4">Amount of food to buy: <%= @general_shopping_list.length%> </h2>
+    <h2 class="text-lg mb-4">Total value of food needed: <%= number_to_currency(@general_shopping_list.sum { |item| item[:price] }, precision: 0) %></h2>
   </div>
   <div id="foods" class="w-full m-auto flex flex-col">
     <table class="text-left text-gray-500 dark:text-gray-400 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
@@ -16,8 +16,8 @@
         <% @general_shopping_list.each do |el| %>
           <tr class="border-b">
             <td class="px-5 py-4"><%= el[:name] %></td>
-            <td class="px-5 py-4"><%= el[:quantity] %></td>
-            <td class="px-5 py-4"><%= el[:price] %></td>
+            <td class="px-5 py-4"><%= number_with_precision(el[:quantity], precision: 0) %> grams</td>
+            <td class="px-5 py-4"><%= number_to_currency(el[:price], precision: 0) %></td>
           </tr>
         <% end %>
       </tbody>
