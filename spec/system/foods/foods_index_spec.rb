@@ -13,14 +13,14 @@ RSpec.describe 'Food Index', type: :system do
       )
   end
 
-#   it 'User should log in' do
-#     visit new_user_session_path
-#     fill_in 'Email', with: @user.email
-#     sleep(2)
-#     fill_in 'Password', with: @user.password
-#     click_button('login')
-#     sleep(3)
-#   end
+  it 'User should log in' do
+    visit new_user_session_path
+    fill_in 'Email', with: @user.email
+    sleep(2)
+    fill_in 'Password', with: @user.password
+    click_button('login')
+    sleep(3)
+  end
 
   it 'User should be able to create add a new Food' do
     visit root_path
