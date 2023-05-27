@@ -10,7 +10,6 @@ RSpec.describe Food, type: :model do
       price: 10.0,
       quantity: 500,
       user_id: user.id
+    )
   end
-
-
 end
