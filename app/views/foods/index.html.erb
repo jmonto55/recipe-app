@@ -1,0 +1,31 @@
+
+<section class="w-screen flex flex-col p-10">
+  <h1 class="mb-6 text-2xl font-bold">Foods</h1>
+  <div id="foods" class="w-full m-auto flex flex-col">
+    <table class="text-left text-gray-500 dark:text-gray-400 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <th scope="col" class="px-6 py-3">Food</th>
+        <th scope="col" class="px-6 py-3">Measurement unit</th>
+        <th scope="col" class="px-6 py-3">Quantity</th>
+        <th scope="col" class="px-6 py-3">Unit price</th>
+        <th scope="col" class="px-6 py-3">Actions</th>
+      </thead>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr class="border-b">
+            <td class="px-6 py-4"><%= food.name %></td>
+            <td class="px-6 py-4"><%= food.measurement_unit %></td>
+            <td class="px-6 py-4"><%= food.quantity %></td>
+            <td class="px-6 py-4">$<%= food.price %></td>
+            <td class="px-6 py-4"><%= button_to 'Remove', food_path(food), method: :delete, class: "hover:text-red-600" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <button class="mt-8 hover:text-blue-600 cursor-pointer flex justify-center actions w-[120px] py-2 px-4 mt-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2">
+      <%= link_to "New food", new_food_path, class: "w-full justify-end", id: 'add-food' %>
+    </button>
+  
+  </div>
+
+</section>

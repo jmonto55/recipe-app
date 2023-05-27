@@ -1,0 +1,39 @@
+<section class="w-full m-auto flex flex-col items-center">
+<%= form_with model: food  do |f| %>
+  <% if food.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
+
+      <ul>
+        <% food.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div>
+      <%= f.text_field :name, placeholder: "Food Name", class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border' %>
+    </div>
+    <br>
+
+    <div>
+      <%= f.label :measurement_unit %>
+      <%= f.select :measurement_unit, options_for_select([['units'], ['grams'], ['kgrams']]), class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border' %>
+    </div>
+    <br>
+
+    <div>
+    <%= f.text_field :price, placeholder: "Price", class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border'  %>
+  </div>
+    <br>
+  <div>
+    <%= f.number_field :quantity, placeholder: "Quantity", class: 'border-none my-3 bg-[#EDF0F4] rounded-xl shadow-innerneu1 shadow-innerneu2 remove-border'  %>
+  </div>
+    <br>
+
+  <div>
+    <%= f.submit class: "hover:text-green-600 cursor-pointer flex justify-center actions w-[120px] py-2 px-4 mt-3 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2", id: 'submit' %>
+  </div>
+<% end %>
+
+</section>

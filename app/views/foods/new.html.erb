@@ -1,0 +1,10 @@
+<section class="mt-10 w-screen flex flex-col items-center">
+  <div class="flex flex-col p-8 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2 mb-4">
+    <h2  class="mb-4 text-xl font-bold">New food</h1>
+    <%= render "form", food: @food %>
+  </div>
+  <br>
+  <div class="hover:text-blue-600 cursor-pointer flex justify-center actions w-[150px] py-2 px-4 bg-[#EDF0F4] rounded-xl shadow-neu1 shadow-neu2">
+    <%= link_to "Back to foods", foods_path %>
+  </div>
+</section>

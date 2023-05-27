@@ -1,0 +1,12 @@
+<div id="<%= dom_id recipe %>" class="w-full p-8">
+  <card class="flex justify-between p-4">
+    <div class="flex flex-col justify-center">
+      <h2 class="text-xl font-bold"><%= recipe.name %></h2>
+      <p class="mt-8"><%= "by: #{recipe.user.name}" %></p>
+    </div>
+    <div class="">
+      <p><%= recipe.foods.length %></p>
+      <p><%= recipe.description %></p>
+    </div>
+  </card>
+</div>

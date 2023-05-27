@@ -13,3 +13,66 @@
  *= require_tree .
  *= require_self
  */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.remove-border:focus {
+  box-shadow: none !important;
+}
+
+select {
+  border: none;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+
+.toggle-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 2.5rem;
+  height: 1.25rem;
+  border-radius: 0.625rem;
+  background-color: #e5e7eb;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-radio::before {
+  content: "";
+  position: absolute;
+  top: 0.18rem;
+  left: 0.1875rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.toggle-radio:checked::before {
+  transform: translateX(1.275rem);
+}
+
+.toggle-radio:focus-visible {
+  box-shadow: 0 0 0 3px;
+}
+
+.toggle-private {
+  outline: none;
+  position: absolute;
+  color: #fff;
+  top: 6px;
+  right: 16.5px;
+  width: 1.21rem;
+  z-index: 1;
+  background-color: rgb(34 197 94);
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
