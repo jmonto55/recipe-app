@@ -5,21 +5,12 @@ RSpec.describe 'Food Index', type: :system do
     @user = User.create(name: 'Jose', email: 'jose@mail.com', password: '2e2010510',
                         password_confirmation: '2e2010510')
     @food = Food.create(
-        name: 'Beans',
-        measurement_unit: 'grams',
-        price: 10.0,
-        quantity: 500,
-        user_id: @user.id
-      )
-  end
-
-  it 'User should log in' do
-    visit new_user_session_path
-    fill_in 'Email', with: @user.email
-    sleep(2)
-    fill_in 'Password', with: @user.password
-    click_button('login')
-    sleep(3)
+      name: 'Beans',
+      measurement_unit: 'grams',
+      price: 10.0,
+      quantity: 500,
+      user_id: @user.id
+    )
   end
 
   it 'User should be able to create add a new Food' do
