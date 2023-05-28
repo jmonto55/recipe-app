@@ -63,7 +63,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo](rails-w71d.onrender.com)
+- [Live Demo](https://rails-w71d.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
