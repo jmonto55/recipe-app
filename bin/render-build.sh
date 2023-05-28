@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# exit on error
+set -o errexit
+
+bundle install
+bundle exec rails assets:precompile
+bundle exec rails assets:clean
+bundle exec rails db:migrate
+
+# Compile Tailwind CSS assets
+yarn install
+RAILS_ENV=production bin/rails assets:precompile
